@@ -99,7 +99,7 @@
 	</main>
 	<footer></footer>
 	<script type="text/template" id="comments-item">
-		<li class="com-item" action="#" method="POST">
+		<li class="com-item" data-user-id="{{author.id}}" action="#" method="POST">
 			<div class="com-user-pic">
 				<img src="{{author.avatar}}" alt="user-pic">
 			</div>
@@ -130,8 +130,8 @@
 						{{content}}
 					</div>
 					<div class="com-user-btns">
-						<button class="com-btn-edit edit"><i class="fas fa-edit"></i>&#32;&#32;Edit</button>
-						<button data-id={{id}} class="com-btn-del"><i class="fas fa-times"></i>&#32;&#32;Delete</button>
+						<button class="com-btn-edit edit" data-type="btn-hidden"><i class="fas fa-edit"></i>&#32;&#32;Edit</button>
+						<button data-id={{id}} class="com-btn-del" data-type="btn-hidden"><i class="fas fa-times"></i>&#32;&#32;Delete</button>
 						<button class="com-btn-reply edit"><span class="icon-reply"></span>Reply</button>
 					</div>
 				</div>

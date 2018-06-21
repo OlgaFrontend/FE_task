@@ -28,14 +28,21 @@ $(function (){
     });
   }
 
+  function showBtn(comment) {
+    $("li[data-user-id!='1'] > .com-data > .com-user-info > .com-user-btns > .com-btn-edit").remove();
+
+    $("li[data-user-id!='1'] > .com-data > .com-user-info > .com-user-btns > .com-btn-del").remove();
+  }
+
   $.ajax({
     type: 'GET',
-    url: 'http://frontend-test.pingbull.com/pages/olha.dubynka@gmail.com/comments',
+    url: 'http://frontend-test.pingbull.com/pages/o.dubynka@gmail.com/comments',
     success: function(comments) {
       $.each(comments, function(i, comment) {
         addComment(comment);
         showCommentForm(comment);
         cancelForm(comment);
+        showBtn(comment);
       });
     },
     error: function() {
@@ -43,16 +50,16 @@ $(function (){
     }
   });
 
-  $('.com-form').on('click', function() {
+  $('.com-form').on('click', function(e) {
   // $('.com-form').on('submit', function(e) { 
-  //   e.preventDefault();
+    e.preventDefault();
     var comment = {
       content: $commentText.val()
     };
 
     $.ajax({
       type: 'POST',
-      url: 'http://frontend-test.pingbull.com/pages/olha.dubynka@gmail.com/comments',
+      url: 'http://frontend-test.pingbull.com/pages/o.dubynka@gmail.com/comments',
       data: comment,
       success: function(newComment) {
         addComment(newComment);
@@ -73,7 +80,7 @@ $(function (){
     // console.log($li);
 
     // $.ajax({
-    //   url: 'http://frontend-test.pingbull.com/pages/olha.dubynka@gmail.com/comments' + $(this).attr('data-id'),
+    //   url: 'http://frontend-test.pingbull.com/pages/o.dubynka@gmail.com/comments' + $(this).attr('data-id'),
     //   type: 'DELETE',
     //   // type: 'POST',
     //   crossDomain: true,
