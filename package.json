@@ -23,5 +23,6 @@
     "gulp-uglify": "^2.0.0",
     "imagemin-pngquant": "^5.1.0"
   },
-  "dependencies": {}
+  "dependencies": {},
+  "homepage": "https://olgafrontend.github.io/FE_task/dist"
 }
